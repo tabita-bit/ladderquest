@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LadderQuest — Shortest Word-Transformation Path Finder</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Breadth-First Search · Client + Server</div>
+    <h1>Ladder<span>Quest</span></h1>
+    <p class="sub">Enter two words. The backend runs BFS over the dictionary graph one letter-change at a time, level by level, guaranteeing the shortest possible transformation chain.</p>
+  </header>
+
+  <div class="panel">
+    <div class="input-row">
+      <div class="tile-input-group">
+        <label>Start word</label>
+        <input type="text" id="startWord" class="word-input" maxlength="5" value="COLD">
+      </div>
+      <div class="arrow-icon">→</div>
+      <div class="tile-input-group">
+        <label>End word</label>
+        <input type="text" id="endWord" class="word-input" maxlength="5" value="WARM">
+      </div>
+      <button class="btn-primary" id="solveBtn">Find shortest ladder</button>
+    </div>
+    <div class="presets" id="presets"></div>
+    <div class="status-msg" id="statusMsg"></div>
+  </div>
+
+  <div class="panel bfs-section" id="bfsSection" style="display:none;">
+    <h2>BFS exploration — level by level</h2>
+    <div id="bfsLevels"></div>
+  </div>
+
+  <div class="panel result-section" id="resultSection" style="display:none;">
+    <h2>Shortest ladder found</h2>
+    <div class="ladder" id="ladder"></div>
+    <div class="chain-summary" id="chainSummary"></div>
+  </div>
+
+  <div class="panel game-section" id="gameSection">
+    <h2>Beat the ladder — build your own chain</h2>
+    <p class="sub" style="margin-bottom:16px;">Try to connect the same two words yourself. Each step is validated by the server: a real word, differing by exactly one letter from the last.</p>
+    <div class="game-chain" id="gameChain"></div>
+    <div class="game-input-row">
+      <input type="text" id="gameInput" maxlength="5" placeholder="NEXT">
+      <button class="btn-secondary" id="gameSubmit">Add step</button>
+      <button class="preset-chip" id="gameReset" style="margin-top:0;">Reset</button>
+    </div>
+    <div class="game-feedback" id="gameFeedback"></div>
+    <div class="game-count" id="gameCount"></div>
+  </div>
+
+  <footer>LADDERQUEST — BFS ON THE SERVER, RENDERED IN THE BROWSER</footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
