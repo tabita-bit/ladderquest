@@ -26,19 +26,18 @@ frontend is a thin client that calls `POST /api/solve` and
 ```
 ladderquest/
 ├── client/
-│   ├── app.js            #calls the API, renders/animates the UI
+│   ├── app.js             #calls the API, renders/animates the UI
 │   ├── index.html        #page structure
 │   └── style.css         #styling
 ├── server/
-│   ├── .gitignore        #excludes node_modules/, .env
 │   ├── bfs.js            #the BFS algorithm itself
-│   ├── package-lock.json
+│   ├── package-lock.json #dependency lockfile (auto-generated)
 │   ├── package.json      #backend dependencies + start script
 │   ├── server.js         #Express app — API routes + serves the frontend
 │   └── words.js          #the dictionary (word list)
-├── .gitignore
-├── LICENSE
-└── README.md
+├── .gitignore             #excludes node_modules/, .env (covers whole repo)
+├── LICENSE                #MIT license
+└── README.md              
 ```
 
 ---
